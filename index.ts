@@ -3,6 +3,8 @@ import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
 
 (async () => {
+    navigator.serviceWorker.register('/Navigator/firebase-messaging-sw.js', {scope: '/'});
+
     initializeApp({
         apiKey: "AIzaSyBhbxJ2LCX0iD298QVVsNHGbfJ7v3N-ajk",
         authDomain: "chill-point.firebaseapp.com",
