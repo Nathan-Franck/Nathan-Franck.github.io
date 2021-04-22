@@ -3,6 +3,9 @@ import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
 
 (async () => {
+    const div_hi = document.createElement("div");
+    div_hi.innerHTML = `Hello World`;
+    document.body.appendChild(div_hi);
     navigator.serviceWorker.register('/Navigator/firebase-messaging-sw.js', {scope: '/'});
 
     initializeApp({
