@@ -22,7 +22,11 @@ import { getAnalytics } from "firebase/analytics";
     // subsequent calls to getToken will return from cache.
     try {
         const messaging = getMessaging();
-        const token = await getToken(messaging, { vapidKey: "BFvhbZZzr1PPJbpATfznhV04eyKGrzFhShvJwWbRe2tGBbtujMoe_gcMIcSGqnRQELdumpCcn9lwPaMeG68nmFE" });
+        const registration = await navigator.serviceWorker.register('./Notifier/firebase-messaging-sw.js');
+        const token = await getToken(messaging, {
+            vapidKey: "BFvhbZZzr1PPJbpATfznhV04eyKGrzFhShvJwWbRe2tGBbtujMoe_gcMIcSGqnRQELdumpCcn9lwPaMeG68nmFE",
+            swReg: registration
+        });
         const div = document.createElement("div");
         div.innerHTML = `Copy this to server: ${token}`;
         document.body.appendChild(div);
