@@ -6,7 +6,7 @@ import { getAnalytics } from "firebase/analytics";
     const div_hi = document.createElement("div");
     div_hi.innerHTML = `Hello World`;
     document.body.appendChild(div_hi);
-    navigator.serviceWorker.register('/Notifier/sw.js', { scope: '/Notifier/' });
+    navigator.serviceWorker.register('Notifier/sw.js', { scope: '/' });
 
     initializeApp({
         apiKey: "AIzaSyBhbxJ2LCX0iD298QVVsNHGbfJ7v3N-ajk",
