@@ -6,7 +6,7 @@ import { getAnalytics } from "firebase/analytics";
     const div_hi = document.createElement("div");
     div_hi.innerHTML = `Hello World`;
     document.body.appendChild(div_hi);
-    navigator.serviceWorker.register('/Navigator/firebase-messaging-sw.js', {scope: '/'});
+    navigator.serviceWorker.register('/Navigator/firebase-messaging-sw.js', { scope: '/' });
 
     initializeApp({
         apiKey: "AIzaSyBhbxJ2LCX0iD298QVVsNHGbfJ7v3N-ajk",
@@ -20,9 +20,15 @@ import { getAnalytics } from "firebase/analytics";
 
     // Get registration token. Initially this makes a network call, once retrieved
     // subsequent calls to getToken will return from cache.
-    const messaging = getMessaging();
-    const token = await getToken(messaging, { vapidKey: "BFvhbZZzr1PPJbpATfznhV04eyKGrzFhShvJwWbRe2tGBbtujMoe_gcMIcSGqnRQELdumpCcn9lwPaMeG68nmFE" });
-    const div = document.createElement("div");
-    div.innerHTML = `Copy this to server: ${token}`;
-    document.body.appendChild(div);
+    try {
+        const messaging = getMessaging();
+        const token = await getToken(messaging, { vapidKey: "BFvhbZZzr1PPJbpATfznhV04eyKGrzFhShvJwWbRe2tGBbtujMoe_gcMIcSGqnRQELdumpCcn9lwPaMeG68nmFE" });
+        const div = document.createElement("div");
+        div.innerHTML = `Copy this to server: ${token}`;
+        document.body.appendChild(div);
+    } catch (e) {
+        const div_2 = document.createElement("div");
+        div_2.innerHTML = `Error: ${JSON.stringify(e)}`;
+        document.body.appendChild(div_2);
+    }
 })()
