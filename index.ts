@@ -6,7 +6,7 @@ import { getAnalytics } from "firebase/analytics";
     const div_hi = document.createElement("div");
     div_hi.innerHTML = `Hello World`;
     document.body.appendChild(div_hi);
-    navigator.serviceWorker.register('Notifier/sw.js', { scope: '/' });
+    navigator.serviceWorker.register('sw.js', { scope: '/' });
 
     initializeApp({
         apiKey: "AIzaSyBhbxJ2LCX0iD298QVVsNHGbfJ7v3N-ajk",
@@ -22,7 +22,7 @@ import { getAnalytics } from "firebase/analytics";
     // subsequent calls to getToken will return from cache.
     try {
         const messaging = getMessaging();
-        const registration = await navigator.serviceWorker.register('./Notifier/sw.js');
+        const registration = await navigator.serviceWorker.register('./sw.js');
         const token = await getToken(messaging, {
             vapidKey: "BFvhbZZzr1PPJbpATfznhV04eyKGrzFhShvJwWbRe2tGBbtujMoe_gcMIcSGqnRQELdumpCcn9lwPaMeG68nmFE",
             swReg: registration
