@@ -8,8 +8,7 @@ const outputFilePath = "./";
 module.exports = {
     mode: "development",
     entry: {
-        [outputFileName]: './index.ts',
-        "firebase-messaging-sw": './firebase-messaging-sw.ts',
+        [outputFileName]: './index.ts'
     },
     module: {
         rules: [
